@@ -89,7 +89,7 @@ Since we are in the POM file, let's add all the needed libraries into it.
 Add dependencies to your POM file
 
 ```
-	  <dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-netty4-http-starter</artifactId>
     </dependency>
@@ -176,9 +176,9 @@ Then do the following.
 *Advanced Tab* 
 	-- Path -> Name: processrest
 
-	```
+	
 	<from id="_from1" uri="direct:processrest"/>
-	```
+	
 	
 - ***Marshal*** under Transformation
 
@@ -187,13 +187,13 @@ Then do the following.
 	-- Context Path : org.mycompany
 	
 	
-	```
+	
 	
 	 <marshal id="_marshal1">
    		<soapjaxb contextPath="org.mycompany"/>
-    </marshal>
+         </marshal>
     
-	```
+	
 
 - ***CXF*** under Component
 
@@ -202,11 +202,11 @@ Then do the following.
 	-- Path -> Bean Id: bean
 	-- Common -> Data Format: MESSAGE
 	
-	```
+	
 	
 	<to id="_to3" uri="cxf:bean:greet?dataFormat=MESSAGE"/>
 	
-	```
+	
 	
 - ***Unmarshal*** under Transformation
 
@@ -214,13 +214,13 @@ Then do the following.
 	-- Data Formate Type : soapjaxb
 	-- Context Path : org.mycompany
 
-	```
+	
 	
 	<unmarshal id="_marshal2">
-		<soapjaxb contextPath="org.mycompany"/>
-   </unmarshal>
+	  <soapjaxb contextPath="org.mycompany"/>
+        </unmarshal>
    
-	```
+	
 	
 - ***Marshal*** under Transformation
 
@@ -228,11 +228,11 @@ Then do the following.
 	-- Data Formate Type : json
 	-- Library : Jackson
 	
-	```
-		<marshal id="_marshal3">
-       	<json library="Jackson"/>
-       </marshal><from id="_from1" uri="direct:processrest"/>
-	```
+	
+	<marshal id="_marshal3">
+       	  <json library="Jackson"/>
+        </marshal><from id="_from1" uri="direct:processrest"/>
+	
 
 ### Running Test 
 
