@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<residence>
+	<resident>
+		<name>Eva</name>
+		<phone>123456</phone>
+		<utility>gas</utility>
+		<vehicles>2</vehicles>
+		<household>2</household>
+	</resident>
+	<resident>
+		<name>Betty</name>
+		<phone>345678</phone>
+		<utility>electricity</utility>
+		<vehicles>1</vehicles>
+		<household>2</household>
+	</resident>
+	<resident>
+		<name>Catherine</name>
+		<phone>55677885</phone>
+		<utility>gas</utility>
+		<vehicles>0</vehicles>
+		<household>3</household>
+	</resident>
+	<resident>
+		<name>Dennis</name>
+		<phone>667843</phone>
+		<utility>gas</utility>
+		<vehicles>1</vehicles>
+		<household>1</household>
+	</resident>
+	<resident>
+		<name>Allen</name>
+		<phone>667843</phone>
+		<utility>electricity</utility>
+		<vehicles>2</vehicles>
+		<household>4</household>
+	</resident>
+	<resident>
+		<name>Grace</name>
+		<phone>778543</phone>
+		<utility>gas</utility>
+		<vehicles>0</vehicles>
+		<household>1</household>
+	</resident>
+</residence>

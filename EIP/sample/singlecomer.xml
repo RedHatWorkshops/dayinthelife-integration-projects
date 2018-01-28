@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<resident>
+		<name>Eva</name>
+		<phone>123456</phone>
+		<utility>gas</utility>
+		<vehicles>2</vehicles>
+		<household>2</household>
+	</resident>
