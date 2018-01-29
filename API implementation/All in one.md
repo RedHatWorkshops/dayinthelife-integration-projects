@@ -147,7 +147,7 @@ Then do the following.
 	<from id="_from1" uri="direct:greet"/>
 	
 	
-- ***removeHeader*** under Transformation
+- ***removeHeaders*** under Transformation
 
 *Detail Tab* 
 	-- Patter : CamelHttp*
