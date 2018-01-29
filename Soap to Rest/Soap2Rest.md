@@ -42,7 +42,7 @@ As always, we want to satrt with a blank canvas. On the lefthand-side panel *Pro
 We are about to connect to an existing SOAP-BASE webservice. This WSDL of webservice is available under 
 
 ```
-http://soap-sample.apps.3dae.openshift.opentlc.com/ws/greeting?wsdl 
+http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl
 ```
 
 In this case, WSDL are pre-defined, we can simply use it to generate what we need to call the class. Include the cxf-codegen-plugin in the POM file. This will build the associated JAVA objects
@@ -63,7 +63,7 @@ In this case, WSDL are pre-defined, we can simply use it to generate what we nee
 				<sourceRoot>${basedir}/src/main/java</sourceRoot>
 					<wsdlOptions>
 						<wsdlOption>
-							<wsdl>http://soap-sample.apps.3dae.openshift.opentlc.com/ws/greeting?wsdl</wsdl>
+							<wsdl>http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl?wsdl</wsdl>
 						</wsdlOption>
 					</wsdlOptions>
 			</configuration>
