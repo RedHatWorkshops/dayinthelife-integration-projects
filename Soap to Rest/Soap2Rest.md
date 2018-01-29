@@ -198,7 +198,7 @@ Then do the following.
 - ***CXF*** under Component
 
 *Advanced Tab*
-	-- Path -> Addredd: greet
+	-- Path -> Address: greet
 	-- Path -> Bean Id: bean
 	-- Common -> Data Format: MESSAGE
 	
