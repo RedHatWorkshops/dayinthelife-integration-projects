@@ -231,7 +231,7 @@ Then do the following.
 	
 	<marshal id="_marshal3">
        	  <json library="Jackson"/>
-        </marshal><from id="_from1" uri="direct:processrest"/>
+        </marshal>
 	
 
 ### Running Test 
