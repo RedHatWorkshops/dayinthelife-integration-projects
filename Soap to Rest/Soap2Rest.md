@@ -63,7 +63,7 @@ In this case, WSDL are pre-defined, we can simply use it to generate what we nee
 				<sourceRoot>${basedir}/src/main/java</sourceRoot>
 					<wsdlOptions>
 						<wsdlOption>
-							<wsdl>http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl?wsdl</wsdl>
+							<wsdl>http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl</wsdl>
 						</wsdlOption>
 					</wsdlOptions>
 			</configuration>
