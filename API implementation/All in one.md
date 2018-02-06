@@ -38,7 +38,7 @@ As always, we want to satrt with a blank canvas. On the lefthand-side panel *Pro
 Add dependencies to your POM file
 
 ```
-	<dependency>
+    <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-servlet-starter</artifactId>
     </dependency>
@@ -47,13 +47,13 @@ Add dependencies to your POM file
       <artifactId>camel-swagger-java-starter</artifactId>
     </dependency>
     <dependency>
-	  <groupId>org.apache.camel</groupId>
-	  <artifactId>camel-jackson-starter</artifactId>
-	</dependency>
-	<dependency>
-	  <groupId>org.apache.camel</groupId>
-	  <artifactId>camel-http4-starter</artifactId>
-	</dependency>  
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jackson-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-http4-starter</artifactId>
+    </dependency>  
 	
 ```
 
@@ -92,7 +92,7 @@ Add Bean with
 The source would looks like this:
 ```
 
-<bean class="org.springframework.boot.web.servlet.ServletRegistrationBean" id="servlet">
+    <bean class="org.springframework.boot.web.servlet.ServletRegistrationBean" id="servlet">
         <property name="name" value="CamelServlet"/>
         <property name="servlet" ref="camelHttpTransportServlet"/>
         <property name="urlMappings" value="/quickies/*"/>
@@ -109,19 +109,19 @@ http://*HOST*/quickies/excercise/hi/*NAME*
 Place the following config into your canvas in **source** view.
 
 ```
-	<restConfiguration apiContextPath="api-docs" bindingMode="auto"
+ <restConfiguration apiContextPath="api-docs" bindingMode="auto"
             component="servlet" contextPath="/quickies">
-            <apiProperty key="cors" value="true"/>
-            <apiProperty key="api.title" value="Self pace tech quickies - one"/>
-            <apiProperty key="api.version" value="1.0.0"/>
-    </restConfiguration>
+    <apiProperty key="cors" value="true"/>
+    <apiProperty key="api.title" value="Self pace tech quickies - one"/>
+    <apiProperty key="api.version" value="1.0.0"/>
+ </restConfiguration>
     
-    <rest path="/excercise">
-	    <get uri="hi/{thename}">
-       	<description>Greeting</description>
-       	<to uri="direct:greet"/>
-       </get>
-    </rest>
+ <rest path="/excercise">
+    <get uri="hi/{thename}">
+       <description>Greeting</description>
+       <to uri="direct:greet"/>
+    </get>
+ </rest>
 ```
 
 Now we have the name of the client, it's time to greet. Notice in the environemnt, there is already an running API. By calling the API 
@@ -143,21 +143,21 @@ Then do the following.
 *Advanced Tab* 
 	-- Path -> Name: greet
 
-	```
-	<from id="_from1" uri="direct:greet"/>
-	```
 	
-- ***removeHeader*** under Transformation
+	<from id="_from1" uri="direct:greet"/>
+	
+	
+- ***removeHeaders*** under Transformation
 
 *Detail Tab* 
 	-- Patter : CamelHttp*
 		
 	
-	```
+	
 	
 	 <removeHeaders id="_removeHeaders1" pattern="CamelHttp*"/>
-    
-	```
+   
+
 - ***setHeader*** under Transformation
 
 *Detail Tab* 
@@ -165,33 +165,32 @@ Then do the following.
 	-- Expression : GET
 		
 	
-	```
-	
-	 <setHeader headerName="CamelHttpMethod" id="_setHeader1">
+
+     <setHeader headerName="CamelHttpMethod" id="_setHeader1">
       <constant>GET</constant>
      </setHeader>
     
-	```
+
 	
 - ***Generic*** under Component
 
 *Detail Tab*
 	-- Uri : http4://randomgreeting-mock.apps.b3dd.openshift.opentlc.com/quickies/greeting/hi?bridgeEndpoint=true
 	
-	```
+	
 	
 	<toD id="_toD1" uri="http4://randomgreeting-mock.apps.b3dd.openshift.opentlc.com/quickies/greeting/hi?bridgeEndpoint=true"/>
 	
-	```
+
 	
 - ***convertBody*** under Transformation
 
 *Detail Tab*
 	-- DType : String
 
-	```
+	
 	<convertBodyTo id="_convertBodyTo1" type="String"/>   
-	```
+	
 	
 - ***setBody*** under Transformation
 
@@ -199,11 +198,11 @@ Then do the following.
 	-- Language : simple
 	-- Expression : ${body} ${headers.thename} !!!
 	
-	```
-		<setBody id="_setBody1">
+	
+	<setBody id="_setBody1">
             <simple>${body} ${headers.thename} !!!</simple>
-       </setBody>
-	```
+        </setBody>
+	
 	
 ### Running Test 
 

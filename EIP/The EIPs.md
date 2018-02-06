@@ -183,7 +183,7 @@ Then do the following.
  
 ```	
 	
-![EIP](../pic/eip.png)
+![EIP](../pic/EIP.png)
 
 ### Running Test 
 
