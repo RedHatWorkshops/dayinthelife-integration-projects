@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="org.mycompany.Greeting" id="greeting"/>
+    <!-- Define a traditional camel context here -->
+    <bean
+        class="org.apache.camel.component.servlet.CamelHttpTransportServlet" id="camelHttpTransportServlet"/>
+    <bean
+        class="org.springframework.boot.web.servlet.ServletRegistrationBean" id="servlet">
+        <property name="name" value="CamelServlet"/>
+        <property name="servlet" ref="camelHttpTransportServlet"/>
+        <property name="urlMappings" value="/quickies/*"/>
+    </bean>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <restConfiguration apiContextPath="api-docs" bindingMode="off"
+            component="servlet" contextPath="/quickies">
+            <apiProperty key="cors" value="true"/>
+            <apiProperty key="api.title" value="Self pace tech quickies"/>
+            <apiProperty key="api.version" value="1.0.0"/>
+        </restConfiguration>
+        <rest path="/greeting">
+            <get uri="hi">
+                <description>Random Greeting</description>
+                <to uri="direct:greet"/>
+            </get>
+        </rest>
+        <route id="simple-route">
+            <from id="_direct1" uri="direct:greet"/>
+            <bean id="_bean1" method="greet" ref="greeting"/>
+        </route>
+    </camelContext>
+</beans>
