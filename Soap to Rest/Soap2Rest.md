@@ -1,6 +1,6 @@
 ## SOAP to REST
 
-One of the common question when enagage in an API conversation how to take the traditional SOAP base webservices to REST HTTP base APIs. IMHO, the best practice is alway take into client oriented deisgn into account, separate client facing logic with internal system moudularity. This often lead to refactorying the original service. Under some circumstance a quick fix is needed by adding another layer on top of the original SOAP-Based webservice. In this tech quickie, a quick and dirty hack to does exactly that. 
+One of the common question when engage in an API conversation how to take the traditional SOAP base webservices to REST HTTP base APIs. IMHO, the best practice is always take into client oriented design into account, separate client facing logic with internal system moudularity. This often leads to refactoring the original service. Under some circumstance a quick fix is needed by adding another layer on top of the original SOAP-Based webservice. In this tech quickie, a quick and dirty hack to do exactly that. 
 
 
 ### Create a New Fuse Project on OpenShift
@@ -31,7 +31,7 @@ Click Finish.
 
 ### Clean up working canvas
 
-As always, we want to satrt with a blank canvas. On the lefthand-side panel *Project Explorer*, under *Camel Context*, double click on the working Camel *camel-context.xml* this will open up your camel canvas. Hover over the mouse cursor on the existing route, click on the trash can icon as it appears.
+As always, we want to start with a blank canvas. On the lefthand-side panel *Project Explorer*, under *Camel Context*, double click on the working Camel *camel-context.xml* this will open up your camel canvas. Hover over the mouse cursor on the existing route, click on the trash can icon as it appears.
 
 ![Clean up](../pic/05.png)
 
@@ -139,7 +139,7 @@ Configure the SOAP-WS endpoint before the actual **<camelcontext>**
         wsdlURL="http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl" xmlns:tns="http://mycompany.org/"/>
 ```  
 
-Apart from the You can most of the mapping from the WSDL itself. NOTE the serviceClass is the SEI (service endpoint interface) not the client implmentation class. 
+Apart from the You can most of the mapping from the WSDL itself. NOTE the serviceClass is the SEI (service endpoint interface) not the client implementation class. 
 
 
 ```
@@ -211,7 +211,7 @@ Then do the following.
 - ***Unmarshal*** under Transformation
 
 *Detail Tab*
-	-- Data Formate Type : soapjaxb
+	-- Data Format Type : soapjaxb
 	-- Context Path : org.mycompany
 
 	
@@ -225,7 +225,7 @@ Then do the following.
 - ***Marshal*** under Transformation
 
 *Detail Tab*
-	-- Data Formate Type : json
+	-- Data Format Type : json
 	-- Library : Jackson
 	
 	
