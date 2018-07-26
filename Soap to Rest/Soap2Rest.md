@@ -45,34 +45,42 @@ We are about to connect to an existing SOAP-BASE webservice. This WSDL of webser
 http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl
 ```
 
-In this case, WSDL are pre-defined, we can simply use it to generate what we need to call the class. Include the cxf-codegen-plugin in the POM file. This will build the associated JAVA objects
+In this case, WSDL are pre-defined, we can simply use it to generate what we need to call the class. Check the generate-cxf profile. This will build the associated JAVA objects.
 
 ```
-<plugin>
-	<groupId>org.apache.cxf</groupId>
-	<artifactId>cxf-codegen-plugin</artifactId>
-	<version>3.1.3</version>
-	<executions>
-		<execution>
-			<id>generate-sources</id>
-			<phase>generate-sources</phase>
-			<goals>
-				<goal>wsdl2java</goal>
-			</goals>
-			<configuration>
-				<sourceRoot>${basedir}/src/main/java</sourceRoot>
-					<wsdlOptions>
-						<wsdlOption>
-							<wsdl>http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl</wsdl>
-						</wsdlOption>
-					</wsdlOptions>
-			</configuration>
-		</execution>
-	</executions>
- </plugin>
+   <profile>
+     <id>generate-cxf</id>
+     <build>
+       <defaultGoal>generate-sources</defaultGoal>
+       <plugins>
+         <plugin>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-codegen-plugin</artifactId>
+           <version>3.1.3</version>
+           <executions>
+             <execution>
+               <id>generate-sources</id>
+               <phase>generate-sources</phase>
+               <goals>
+                 <goal>wsdl2java</goal>
+               </goals>
+               <configuration>
+                 <sourceRoot>${basedir}/src/main/java</sourceRoot>
+                 <wsdlOptions>
+                   <wsdlOption>
+                     <wsdl>http://soap-mock.apps.b3dd.openshift.opentlc.com/ws/greeting?wsdl</wsdl>
+                   </wsdlOption>
+                 </wsdlOptions>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+       </plugins>
+     </build>
+   </profile>
 ```
 
-In your terminal go to your project directory (or Run as -> Maven Builds in JBDS), run maven install to generate the files.  
+In your terminal go to your project directory (or Run as -> Maven Builds in JBDS), run maven generate-sources -Pgenerate-cxf to generate the files.  
 
 ```
 mvn clean install
