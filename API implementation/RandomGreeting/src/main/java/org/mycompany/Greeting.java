@@ -16,44 +16,38 @@
  */
 package org.mycompany;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 
 public class Greeting {
 	
-	
-	private ArrayList<String> getAllPhrases(){
-		ArrayList<String> allphrases = new ArrayList<String>();
-		
-		allphrases.add("HI");
-		allphrases.add("HELLO");
-		allphrases.add("BONJOUR");
-		allphrases.add("HOLA");
-		allphrases.add("GUTEN TAG");
-		allphrases.add("CIAO");
-		allphrases.add("NAMASTE");
-		allphrases.add("OLÀ");
-		allphrases.add("ZDRAS-TVUY-TE");
-		allphrases.add("KONNICHIWA");
-		allphrases.add("AHN-YOUNG-HA-SE-YO");
-		allphrases.add("MERHABA");
-		allphrases.add("NI HAU");
-		allphrases.add("SANNU");
-		
-		
-		return allphrases;
-		
+	private List<String> getAllGreetingPhrases(){
+		return Arrays.asList(
+				"HI",
+				"HELLO",
+				"BONJOUR",
+				"HOLA",
+				"GUTEN TAG",
+				"CIAO",
+				"NAMASTE",
+				"OLÀ",
+				"ZDRAS-TVUY-TE",
+				"KONNICHIWA",
+				"AHN-YOUNG-HA-SE-YO",
+				"MERHABA",
+				"NI HAU",
+				"SANNU");
 	}
 
     public String greet() {
-    		ArrayList<String> allphrases = getAllPhrases();
-    		Random ran = new Random();
+    	List<String> allGreetingPhrases = getAllGreetingPhrases();
+    	Random ran = new Random();
     		
-    		int randomInt = 0 + ran.nextInt((allphrases.size()-1) - 0 + 1);
+    	int randomInt = 0 + ran.nextInt((allGreetingPhrases.size()-1) - 0 + 1);
     		
-    		String greeting = allphrases.get(randomInt);
-    		return greeting;
+    	return allGreetingPhrases.get(randomInt);
     }
 
 }
